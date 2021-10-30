@@ -95,3 +95,4 @@ public class HelloServlet extends HttpServlet {
 }
 ```
 
+서블릿 덕분에 개발자는 HTTP 스펙을 매우 편리하게 사용할 수 있다.

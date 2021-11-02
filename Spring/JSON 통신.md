@@ -4,7 +4,7 @@ JSON 형식으로 데이터를 전송 하고 받기 위해서는 HttpServletRequ
 `ObjectMapper`라는 클래스를 이용해야 한다. 스프링 부트의 경우에는 jackson 라이브러리가 자동으로 추가가되어있어서 따로 의존성 설정이 필요 없지만,
 스프링의 경우에는 필요하다.
 
-예를 들어 `{username:dope, age:28}` 다음과 같은 JSON 형식의 데이터를 서버로 전달한다고 했을 때 서버에서 해당 JSON 데이터를 객체로 변환 시키는 과정은 다음과 같다.
+예를 들어 `{"username":"bjh", "age":28}` 다음과 같은 JSON 형식의 데이터를 서버로 전달한다고 했을 때 서버에서 해당 JSON 데이터를 객체로 변환 시키는 과정은 다음과 같다.
 
 1. 메시지 바디의 내용을 bytecode 로 얻기
 2. bytecode to String
@@ -24,7 +24,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
         ServletInputStream inputStream = request.getInputStream();
 
         // 2. bytecode to String
-        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8); // {username:dope, age:28} 형식의 문자열
+        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8); // {"username":"bjh", "age":28} 형식의 문자열
         System.out.println("messageBody = " + messageBody);
 
         // 3. String to Object
